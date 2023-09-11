@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="header">
+    <h6>Admin</h6>
+    <img src="./assets/icon_admin.png" alt="Admin Icon">
+  </div>
+  <hr>
+  <h2>Generador de Turnos</h2>
+  <div class="form">
+    <div class="form_2">
+      <select [(ngModel)] = "seleccionado2" id="comercio">
+        <!-- Opciones para la lista de comercios -->
+        <option value="Comercio">Comercio</option>
+        <option *ngFor="let opcion of opciones1" value="Car center">Car center</option>
+        <option *ngFor="let opcion of opciones1" value="Centro Diseño">Centro Diseño</option>
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+
+      <select [(ngModel)] = "seleccionado1" id="servicio">
+        <!-- Opciones para la lista de servicios -->
+        <option value="Servicio">Servicio</option>
+        <option *ngFor="let opcion of opciones1" value="Lavado General">Lavado General</option>
+        <option *ngFor="let opcion of opciones1"value="Diseño Cocina">Diseño Cocina</option>
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+
+      <!-- Este fragmento HTML representa un formulario con campos de fecha y hora. -->
+      <div class="form_5">
+        <!-- Campo para ingresar la Fecha de Fin -->
+        <label for="fechaInicio">Fecha Inicio:</label>
+        <!-- Utiliza la directiva [(ngModel)] para vincular bidireccionalmente el valor del campo a la propiedad "fechaInicio" en el componente Angular. -->
+        <input [(ngModel)] ="fechaInicio" type="date" value="" id="fechaInicio">
+
+        <!-- Campo para ingresar la Fecha de Fin -->
+        <label for="fechaFin">Fecha Fin:</label>
+        <!-- Utiliza la directiva [(ngModel)] para vincular bidireccionalmente el valor del campo a la propiedad "fechaFin" en el componente Angular. -->
+        <input [(ngModel)] ="fechaFin" type="date" id="fechaFin">
+      </div>
+      <div class="form_6">
+        <label for="horaInicio">Hora Inicio:</label>
+        <input [(ngModel)] ="startTime" [(ngModel)] ="horaInicio" type="time" value="" id="horaInicio">
+
+        <label for="horaFin">Hora Fin:</label>
+        <input [(ngModel)] ="endTime" [(ngModel)] ="horaFin" type="time" id="horaFin">
+      </div>
+    </div>
+
+    <div class="form_4">
+      <button (click)="agregarDatos()" id="generar">Generar</button>
+    </div>
+  </div>
+
+  <!--
+  Este fragmento HTML representa una tabla que se utiliza para mostrar los turnos generados.
+  La tabla incluye encabezados de columna para Comercio, Servicio, Fecha de Turno, Hora de Inicio y Hora de Fin.
+  Los datos de los turnos se llenan dinámicamente utilizando la directiva *ngFor de Angular.
+-->
+  <div class="turnos">
+    <h2>Turnos Generados:</h2>
+    <!-- Tabla que muestra los turnos generados -->
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>Comercio</th>
+          <th>Servicio</th>
+          <th>Fecha de Turno</th>
+          <th>Hora de Inicio</th>
+          <th>Hora de Fin</th>
+        </tr>
+      </thead>
+      <!-- Cuerpo de la tabla, donde se llenan los datos de los turnos -->
+      <tbody id="listaTurnos">
+        <!--Se Utiliza *ngFor para recorrer la matriz de datos de turnos (tablaDatos) y generar filas de la tabla -->
+        <tr *ngFor="let dato of tablaDatos">
+          <th>{{dato.opcion2}}</th>
+          <th>{{dato.opcion1}}</th>
+          <th>{{dato.fechaInit}}</th>
+          <th>{{dato.horaIni}}</th>
+          <th>{{dato.horaEnd}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- <script src="script.js"></script> -->
