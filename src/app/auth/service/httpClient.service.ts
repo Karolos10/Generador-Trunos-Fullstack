@@ -12,7 +12,7 @@ export class HttpClientService {
 constructor(private http: HttpClient) { }
 
 getDatas(): Observable<any>{
-  return this.http.get(`${this.baseUrl}/turnos/{requestedId}`)
+  return this.http.get(`${this.baseUrl}/turnos/id`)
 }
 
 postData(data: any): Observable<any>{
